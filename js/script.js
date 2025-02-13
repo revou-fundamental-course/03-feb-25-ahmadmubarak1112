@@ -11,12 +11,31 @@ function validateForm() {
     let calc = isReversed ? convertToCelsius(input) : convertToFahrenheit(input);
     document.getElementById('main-result').value = calc;
     updateExplanation(input, calc);
+
+    // Tampilkan bar tingkat suhu
+    const suhuLevel = document.querySelector('.suhu-level');
+    suhuLevel.style.display = 'block'; // Tampilkan bar
+
+    // Beri jeda kecil sebelum memulai animasi
+    setTimeout(() => {
+        updateSuhuLevel(input); // Update bar tingkat suhu dengan animasi
+    }, 10); // Jeda 10ms
 }
 
 function resetForm() {
     document.getElementById('main-input').value = '';
     document.getElementById('main-result').value = '';
     document.getElementById('cara-konversi').innerHTML = '';
+
+    // Sembunyikan bar tingkat suhu
+    const suhuLevel = document.querySelector('.suhu-level');
+    suhuLevel.style.display = 'none'; // Sembunyikan bar
+
+    // Reset bar tingkat suhu
+    const suhuCategory = document.getElementById('suhu-category');
+    const suhuStatus = document.getElementById('suhu-status');
+    suhuCategory.style.width = '0%'; // Reset lebar ke 0%
+    suhuStatus.textContent = '';
 }
 
 let convertToFahrenheit = (celsius) => Math.round((celsius * 9 / 5) + 32);
@@ -74,4 +93,37 @@ function updateExplanation(input, result) {
         3. Rumus menghitung konversi suhu ${inputUnit} ke ${resultUnit} = <strong>${formula}</strong><br><br>
         4. Rumus perhitungan = ${calculation}<br><br>
         5. Maka hasil dari ${input}${inputUnit} adalah ${result}${resultUnit}`;
+}
+
+function updateSuhuLevel(celsius) {
+    const suhuCategory = document.getElementById('suhu-category');
+    const suhuStatus = document.getElementById('suhu-status');
+    let color, status, width;
+
+    if (celsius < 0) {
+        color = '#1e90ff'; // Biru muda agak tua
+        status = 'Sangat Dingin';
+        width = 10; // 10% dari bar
+    } else if (celsius >= 0 && celsius <= 20) {
+        color = '#87ceeb'; // Biru muda
+        status = 'Dingin';
+        width = 30; // 30% dari bar
+    } else if (celsius >= 21 && celsius <= 30) {
+        color = '#32cd32'; // Hijau netral
+        status = 'Hangat';
+        width = 50; // 50% dari bar
+    } else if (celsius >= 31 && celsius <= 40) {
+        color = '#ff8c00'; // Orange
+        status = 'Panas';
+        width = 70; // 70% dari bar
+    } else {
+        color = '#ff4500'; // Merah tidak terlalu tua
+        status = 'Sangat Panas';
+        width = 90; // 90% dari bar
+    }
+
+    // Update bar dan status
+    suhuCategory.style.width = `${width}%`;
+    suhuCategory.style.backgroundColor = color;
+    suhuStatus.textContent = `Kategori Suhu: ${status}`;
 }
