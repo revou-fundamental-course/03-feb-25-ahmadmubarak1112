@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Konversi Suhu</title>
+    <title>Aplikasi Konversi Suhu</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -13,15 +13,16 @@
 <body>
 
     <header class="main-header">
-        <h1>Konversi Suhu</h1>
+        <h1>Aplikasi Konversi Suhu</h1>
+        <h3>Oleh Ahmad Mubarak</h3>
     </header>
 
     <main class="container">
 
         <!-- Introduction -->
         <section class="caption">
-            <p>Masukkan Suhu derajat Celcius (&deg;C) ke kotak di bawah, lalu klik tombol konversi untuk mendapatkan
-                hasil konversi dalam bentuk Fahrenheit (&deg;F)
+            <p>Masukkan nilai suhu dalam bentuk angka, klik tombol konversi untuk mendapatkan
+                hasil konversi, reset untuk menghapus data konversi dan tukar untuk menukarkan konversi
             </p>
         </section>
 
@@ -30,13 +31,13 @@
             <form action="" class="input-group">
                 <div class="input-data">
                     <label for="main-input">Celcius:</label>
-                    <input type="number" id="main-input" placeholder="Masukkan angka" required>
+                    <input type="number" id="main-input" placeholder="Masukkan angka suhu Celcius" required>
                 </div>
 
                 <div class="button-group">
                     <button type="button" onclick="validateForm()">Konversi</button>
                     <button type="button" onclick="resetForm()">Reset</button>
-                    <button>Reverse</button>
+                    <button type="button" onclick="reverseConversion()">Reverse</button>
                 </div>
 
             </form>
@@ -49,7 +50,7 @@
 
                 <div class="input-data">
                     <label for="main-result">Fahrenheit:</label>
-                    <input type="text" id="main-result" readonly>
+                    <input type="text" id="main-result" class="suhu-f" readonly>
                 </div>
 
             </form>
@@ -68,26 +69,30 @@
             </form>
         </section>
 
+        <hr>
+
         <!-- Penjelasan rumus konversi suhu -->
         <section class="penjelasan-rumus">
+        
+            <h2>Rumus Mencari Nilai Konversi Suhu</h2>
 
-            <header>
-                <h2>Cara konversi dari Celcius (&deg;C) ke Fahrenheit (&deg;F)</h2>
-            </header>
-
-            <hr>
-
-            <article>
-                <p>Rumus: <span>F = C * 9/5 + 32</span></p>
-                <p>Untuk konversi suhu dari Celcius ke Fahrenheit, kita menggunakan rumus di atas.</p>
-            </article>
-
+            <div class="all-rumus">
+                <h3>Celcius (&deg;C) ke Fahrenheit (&deg;F)</h3>
+                <p class="rumus">F = ( &deg;C * 9/5 ) + 32</p>
+                <p><i>C</i> merupakan nilai suhu derajat Celcius yang diketahui</p>
+                
+                <h3>Fahrenheit (&deg;F) ke Celcius (&deg;C)</h3>
+                <p class="rumus">C = ( &deg;F - 32 ) * 5 / 9</p>
+                <p><i>F</i> merupakan nilai suhu derajat Fahrenheit yang diketahui</p>
+            </div>
+            
         </section>
 
     </main>
 
     <footer>
-        <p>Made by Ahmad Mubarak</p>
+        <p>Aplikasi Konversi Suhu dirancang oleh <a href="https://www.linkedin.com/in/ahmad-mubarak-0b33002b5/" class="linkedin" title="Buka akun Linkedin" target="_blank">Ahmad Mubarak</a></p>
+        <small>Copyright &copy; 2025</small>
     </footer>
 
     <script src="js/script.js"></script>

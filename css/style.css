@@ -7,17 +7,30 @@
 }
 
 body {
-    background-color: #0f0f0f;
+    background: rgba(0, 0, 0, 0.55) url(../assets/bg-img.png);
+    background-blend-mode: darken;
+    background-size: 100%;
+    background-repeat: repeat;
     color: #fff;
     padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.main-header h1 {
+    margin-top: 30px;
+    font-size: 2.6rem;
+}
+
+.caption {
+    margin-bottom: 60px;
+}
+
 .container {
     max-width: 750px;
     display: grid;
-    margin: 50px auto;
+    margin: 70px auto;
     background-color: rgb(49, 49, 49);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     border-radius: 7px;
     padding: 25px;
     box-sizing: border-box;
@@ -32,7 +45,7 @@ body {
 }
 
 section {
-    margin: 15px 0;
+    margin: 20px 0;
 }
 
 .input-group {
@@ -80,26 +93,45 @@ section {
 form .input-data {
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 10px;
 }
 
 form label {
     font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.input-suhu-f {
+    margin-top: 40px;
+}
+
+.penjelasan-konversi {
+    margin-bottom: 80px;
 }
 
 input {
-    width: 100%;
+    width: 65%;
     height: 35px;
     border: none;
     background-color: transparent;
     border-bottom: 2px solid #fff;
     color: #fff;
     border-radius: none;
-    font-size: 16px;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 0 auto;
 }
 
 input:focus {
     outline: none;
+}
+
+.suhu-f {
+    border: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
 textarea[id="cara-konversi"] {
@@ -118,11 +150,37 @@ textarea[id="cara-konversi"]:hover {
     cursor: auto;
 }
 
-article p span {
-    font-weight: bold;
-    font-size: 20px;
+.penjelasan-rumus {
+    text-align: center;
+    margin-top: 50px;
 }
 
-@media only screen and (max-width: 480px) {
-    
+.penjelasan-rumus h2 {
+    margin-bottom: 50px;
+}
+
+.penjelasan-rumus .all-rumus {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.penjelasan-rumus .all-rumus .rumus {
+    font-size: 1.6rem;
+    font-style: italic;
+    font-family: monospace;
+    letter-spacing: -2px;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer .linkedin {
+    color: #fff;
+}
+
+footer .linkedin:hover {
+    color: #c9c9c9;
 }
