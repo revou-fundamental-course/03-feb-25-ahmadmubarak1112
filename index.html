@@ -1,12 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Website Konversi Suhu</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    
-    
+
+    <header class="main-header">
+        <h1>Konversi Suhu</h1>
+    </header>
+
+    <main class="container">
+
+        <!-- Introduction -->
+        <section class="caption">
+            <p>Masukkan Suhu derajat Celcius (&deg;C) ke kotak di bawah, lalu klik tombol konversi untuk mendapatkan
+                hasil konversi dalam bentuk Fahrenheit (&deg;F)
+            </p>
+        </section>
+
+        <!-- Form input suhu -->
+        <section>
+            <form action="" class="input-group">
+                <div class="input-data">
+                    <label for="main-input">Celcius:</label>
+                    <input type="number" id="main-input">
+                </div>
+
+                <div class="button-group">
+                    <button type="button" onclick="validateForm()">Konversi</button>
+                    <button>Reset</button>
+                    <button>Reverse</button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Input Konversi -->
+        <section>
+
+            <form action="" class="input-group">
+
+                <div class="input-data">
+                    <label for="main-result">Fahrenheit:</label>
+                    <input type="text" id="main-result" readonly>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- Cara konversi suhu -->
+        <section>
+            <form action="" class="input-group">
+
+                <div class="input-data">
+                    <label for="cara-konversi">Cara Konversi:</label>
+                    <input type="text" id="cara-konversi" readonly>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Penjelasan rumus konversi suhu -->
+        <section>
+
+            <header>
+                <h2>Cara konversi dari Celcius (&deg;C) ke Fahrenheit (&deg;F)</h2>
+            </header>
+
+            <hr>
+
+            <article>
+                <p>Suhu <span>S</span></p>
+                <p>S<sub>(&deg;F)</sub>=</p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Made by Ahmad Mubarak</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
