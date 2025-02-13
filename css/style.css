@@ -87,7 +87,8 @@ input {
 }
 
 input[type="number"]:focus {
-    border: 1px solid #28eb21;
+    /* border: 1px solid #28eb21; */
+    
 }
 
 article p span {
