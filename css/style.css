@@ -48,7 +48,6 @@ section {
     margin: 20px 0;
 }
 
-/* Sembunyikan bar tingkat suhu secara default */
 .suhu-level {
     display: none;
     margin: 20px 0;
@@ -66,9 +65,7 @@ section {
 .suhu-category {
     height: 100%;
     width: 0%;
-    /* Default width 0% */
     background-color: #007bff;
-    /* Warna default */
     transition: width 0.5s ease, background-color 0.5s ease;
 }
 
