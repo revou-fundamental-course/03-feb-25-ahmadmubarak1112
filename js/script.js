@@ -7,7 +7,7 @@ function validateForm() {
     console.log(input.value);
 
     if (input.value == '') {
-        alert('Tolong isi inputan!');
+        alert('Isikan angka!');
     } else {
         // proses konversi
         let calc = convertToCelcius(input.value);
