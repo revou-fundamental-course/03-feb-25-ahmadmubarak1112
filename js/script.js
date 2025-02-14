@@ -5,7 +5,7 @@ function validateForm() {
     let input = document.getElementById('main-input').value;
 
     if (input === '') {
-        alert('Isikan angka!');
+        alert('Anda belum memasukkan angka! Silakan masukkan angka!');
         return;
     }
     input = parseInt(input); // Inputan berupa angka bulat
@@ -18,6 +18,15 @@ function validateForm() {
     const suhuLevel = document.querySelector('.suhu-level');
     suhuLevel.style.display = 'block'; 
 
+    // Tampilkan label "Penjelasan Konversi:"
+    document.getElementById('label-konversi').style.display = 'block';
+
+    // Tambahkan margin bottom ke penjelasan konversi
+    document.querySelector('.penjelasan-konversi').classList.add('active');
+
+    // Munculkan hasil konversi secara perlahan
+    document.getElementById('main-result').classList.add('visible');
+
     // Beri jeda sebelum animasi dimulai
     setTimeout(() => {
         updateSuhuLevel(input); 
@@ -26,19 +35,40 @@ function validateForm() {
 
 // Function reset
 function resetForm() {
-    document.getElementById('main-input').value = '';
-    document.getElementById('main-result').value = '';
-    document.getElementById('cara-konversi').innerHTML = '';
+    // Tampilkan dialog konfirmasi
+    const isConfirmed = confirm('Apakah Anda yakin ingin mereset form?');
 
-    // Sembunyikan bar tingkat suhu
-    const suhuLevel = document.querySelector('.suhu-level');
-    suhuLevel.style.display = 'none'; 
+    // Jika pengguna memilih "OK", lanjutkan reset
+    if (isConfirmed) {
+        document.getElementById('main-input').value = '';
+        document.getElementById('main-result').value = '';
+        document.getElementById('cara-konversi').innerHTML = '';
 
-    // Reset bar tingkat suhu
-    const suhuCategory = document.getElementById('suhu-category');
-    const suhuStatus = document.getElementById('suhu-status');
-    suhuCategory.style.width = '0%'; 
-    suhuStatus.textContent = '';
+        // Sembunyikan bar tingkat suhu
+        const suhuLevel = document.querySelector('.suhu-level');
+        suhuLevel.style.display = 'none';
+
+        // Reset bar tingkat suhu
+        const suhuCategory = document.getElementById('suhu-category');
+        const suhuStatus = document.getElementById('suhu-status');
+        suhuCategory.style.width = '0%';
+        suhuStatus.textContent = '';
+
+        // Sembunyikan label "Penjelasan Konversi:"
+        document.getElementById('label-konversi').style.display = 'none';
+
+        // Hapus margin bottom dari penjelasan konversi
+        document.querySelector('.penjelasan-konversi').classList.remove('active');
+
+        // Hilangkan hasil konversi secara perlahan
+        document.getElementById('main-result').classList.remove('visible');
+
+        // Optional: Beri pesan bahwa form telah direset
+        alert('Form telah direset!');
+    } else {
+        // Optional: Beri pesan bahwa reset dibatalkan
+        alert('Reset dibatalkan.');
+    }
 }
 
 // Rumus konversi suhu

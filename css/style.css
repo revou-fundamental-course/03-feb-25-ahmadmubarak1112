@@ -13,6 +13,7 @@ body {
     background-repeat: repeat;
     color: #fff;
     padding: 20px;
+    overflow-anchor: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -34,10 +35,53 @@ body {
     border-radius: 7px;
     padding: 25px;
     box-sizing: border-box;
+    opacity: 0;
+    animation: fade 0.7s 0.32s ease forwards;
+    backface-visibility: hidden;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .main-header {
-    text-align: center;
+    text-align: center; 
+    opacity: 0; 
+    animation: slideUp 1s ease forwards; 
+    will-change: transform, opacity; /* Optimalkan performa animasi */
+    backface-visibility: hidden; 
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi untuk hasil konversi */
+#main-result {
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.5s ease-out, visibility 1s ease-out; 
+    font-size: 2.6rem; 
+    font-weight: bold; 
+    text-align: center; 
+}
+
+#main-result.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .caption {
@@ -134,7 +178,16 @@ form label {
 }
 
 .penjelasan-konversi {
+    margin-bottom: 0;
+    transition: margin-bottom 0.3s ease;
+}
+
+.penjelasan-konversi.active {
     margin-bottom: 80px;
+}
+
+#label-konversi {
+    display: none;
 }
 
 input {
@@ -158,7 +211,6 @@ input:focus {
     border: none;
     font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 30px;
 }
 
 textarea[id="cara-konversi"] {
@@ -212,32 +264,42 @@ footer .linkedin:hover {
     color: #c9c9c9;
 }
 
+/**************** RESPONSIVE BREAKPOINTS ******************/
 @media only screen and (max-width:480px) {
     
     .main-header h1 {
-        font-size: 1.9rem;
+        font-size: 2.06rem;
     }
 
     .caption {
-        font-size: 0.9rem;
+        font-size: 1.15rem;
     }
     
+    .button-group {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        width: 85%;
+    }
+
     .button-group button {
-        padding: 8px 13px;
-        font-size: 9px;
+        padding: 13px 16px;
+        font-size: 1rem;
     }
 
     input {
-        font-size: 0.7rem;
+        width: 85%;
+        font-size: 0.93rem;
+        margin-bottom: 15px;
     }
 
     form label {
-        font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 1.45rem;
     }
 
     .suhu-f {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
 
     textarea[id="cara-konversi"] {
@@ -249,7 +311,11 @@ footer .linkedin:hover {
     }
 
     footer {
-        font-size: 0.7rem;
+        font-size: 0.77rem;
+    }
+
+    footer small {
+        font-size: 0.8rem;
     }
 
 
